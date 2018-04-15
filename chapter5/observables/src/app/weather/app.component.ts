@@ -18,22 +18,27 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AppComponent implements OnInit{
   private baseWeatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
-  private urlSuffix = "&units=imperial&appid=ca3f6d6ca3973a518834983d0b318f73";
+  private urlSuffix = '&units=metric&appid=ca3f6d6ca3973a518834983d0b318f73';
 
   searchInput: FormControl = new FormControl();
   weather: string;
 
   constructor(private http:HttpClient){ }
 
+
   ngOnInit(){
     this.searchInput.valueChanges
-      .debounceTime(200)
+      .debounceTime(500)
+      // .switchMap(city => this.getWeather(city))
       .switchMap(city => this.getWeather(city))
       .subscribe(
         res => {
           this.weather =
-            `Current temperature is  ${res['main'].temp}F, ` +
-            `humidity: ${res['main'].humidity}%`;
+            `Current temperature is  ${res['main'].temp}C, ` +
+            `humidity: ${res['main'].humidity} % ` +
+            `temp min: ${res['main'].temp_min}  ` +
+            `temp max: ${res['main'].temp_max}  `
+            ;
         },
         err => console.log(`Can't get weather. Error code: %s, URL: %s`, err.message, err.url)
       );
@@ -47,4 +52,6 @@ export class AppComponent implements OnInit{
           return Observable.empty()}    // empty observable
       });
   }
+
+
 }

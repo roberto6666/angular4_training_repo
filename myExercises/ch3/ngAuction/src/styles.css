@@ -1,0 +1,9 @@
+bodyzz {
+  padding-top: 70px
+}
+.bodyss {
+  padding-top: 170px
+}
+
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';

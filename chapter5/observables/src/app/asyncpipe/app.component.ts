@@ -11,5 +11,5 @@ export class AppComponent {
 
   numbers: Observable<number> =
              Observable.interval(1000)
-               .take(10);
+               .take(100);
 }

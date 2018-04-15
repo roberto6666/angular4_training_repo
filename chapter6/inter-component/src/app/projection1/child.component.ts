@@ -5,11 +5,13 @@ import {Component, ViewEncapsulation} from "@angular/core";
  styles: ['.wrapper {background: lightgreen;}'],
   template: `
     <div class="wrapper">
+
      <h2>Child</h2>
+
       <div>This content is defined in child</div><p>
       <ng-content></ng-content>
     </div>
   `,
-  encapsulation:ViewEncapsulation.Native
+  encapsulation:ViewEncapsulation.Emulated
 })
 export class ChildComponent {}

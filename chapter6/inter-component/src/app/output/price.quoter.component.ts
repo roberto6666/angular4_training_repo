@@ -16,7 +16,7 @@ export class PriceQuoterComponent {
   priceQuote : IPriceQuote;
 
   constructor() {
-    Observable.interval(2000)
+    Observable.interval(200)
       .subscribe(data =>{
         this.priceQuote = {
           stockSymbol: "IBM",

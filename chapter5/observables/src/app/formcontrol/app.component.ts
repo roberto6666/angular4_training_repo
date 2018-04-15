@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-
 import { FormControl} from '@angular/forms';
-
 import { debounceTime } from 'rxjs/operators';
-
-
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: "app-root",
@@ -17,11 +14,12 @@ export class AppComponent {
 
   searchInput: FormControl = new FormControl('');
 
-  constructor(){
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnInit(){
 
     this.searchInput.valueChanges
-      .pipe(
-      debounceTime(500))
+      .debounceTime(500)
       .subscribe(stock => this.getStockQuoteFromServer(stock));
   }
 

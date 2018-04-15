@@ -1,0 +1,17 @@
+<p>
+  product-detail works!
+  {{productID}}
+  {{configurationID}}
+  {{productCategory}}
+
+  <router-outlet></router-outlet>
+
+  <input placeholder="Enter your name" type="text" [formControl]="name">
+
+  <a [routerLink]="['seller', sellerId] " >Product seller</a>
+  <input type="button" value="Product seller"
+  (click)="navigateToProductSeller()" />
+
+
+
+</p>

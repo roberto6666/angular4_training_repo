@@ -1,0 +1,27 @@
+<nga-navbar></nga-navbar>
+      <div class="container">
+        <div class="row">
+        <div class="col-md-3 my-form-group">
+          <nga-search></nga-search>
+        </div>
+        <div class="col-md-6 my-form-group">
+          <router-outlet></router-outlet>
+        </div>
+        <div class="col-md-3 my-form-group">
+          <router-outlet name="aux"></router-outlet>
+        </div>
+      </div>
+  </div>
+<nga-footer></nga-footer>
+<a [routerLink]="['/']">Home</a>
+<a [routerLink]="['/product', productId, configurationId]">Product Details</a>
+<a [routerLink]="['/product', productId, configurationId]" [queryParams]="{category:'sports'}">Sports products</a>
+<input type="button" value="Product Details"
+(click)="navigateToProductDetail()" />
+<input type="button" value="Sport Product Details"
+(click)="navigateToSportProductDetail()" />
+<br>
+<a [routerLink]="['', {outlets: { aux: 'chat'}}]">Open Chat</a>
+<a [routerLink]="[{outlets: {aux: null}}]">Close Chat</a>
+<br>
+<a [routerLink]="['/luxury']">Luxury</a>

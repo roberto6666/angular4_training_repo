@@ -1,0 +1,8 @@
+.container {
+    display: flex; /* or inline-flex */
+  }
+
+  .fill {
+    flex: 1;
+    }
+    
